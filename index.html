@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio — Sajid</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Sajid</h1>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="hero" class="hero">
+      <div class="hero-left">
+        <img src="assets/profile.png" alt="Profile photo" class="profile-photo">
+      </div>
+      <div class="hero-right">
+        <h2>Hi, I'm Sajid</h2>
+        <p class="lead">I’m an undergraduate Computer Science and Engineering student at RUET, passionate about software development and problem-solving. I enjoy building web and mobile applications—especially using MERN and Flutter—and exploring innovative tech ideas. I’m also a competitive programmer who loves tackling challenging algorithmic problems. My goal is to grow as a software engineer and create impactful, user-centered solutions.</p>
+        <p><a class="cta" href="#contact">Get in touch</a></p>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h3>About</h3>
+      <p>Demo bio: I build web apps, love learning new technologies, and enjoy working on open-source projects. I'm currently exploring frontend tooling and design systems.</p>
+    </section>
+
+    <section id="projects" class="card">
+      <h3>Projects</h3>
+      <div class="grid">
+        <article class="project">
+          <h4>Project Alpha</h4>
+          <p>Short description of Project Alpha. Demo tech: HTML, CSS, JavaScript.</p>
+          <p class="muted">Link: <a href="#">github.com/username/project-alpha</a></p>
+        </article>
+        <article class="project">
+          <h4>Project Beta</h4>
+          <p>Short description of Project Beta. Demo tech: React, Node.js.</p>
+          <p class="muted">Link: <a href="#">github.com/username/project-beta</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="card">
+      <h3>Education</h3>
+      <ul>
+        <li><strong>B.Sc. in Computer Science</strong> — Rajshahi University of Engineering and Technology (2023 - 2027)</li>
+        <li><strong>Higher Secondary School Certificate</strong> — New Government Degree College (2019 - 2021)</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:m.sajid1495@.com" target="_blank">m.sajid1495@.com</a></p>
+      <p>LinkedIn: <a href="http://www.linkedin.com/in/sajidruetcse21" target="_blank">sajidruetcse21</a> • GitHub: <a href="https://github.com/sajid1495" target="_blank">sajid1495</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year">2025</span> Your Name. Built with a lightweight HTML/CSS template.</p>
+    </div>
+  </footer>
+
+  <script>
+    // small script to set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Theme toggle: respects system preference and persists choice in localStorage
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const storageKey = 'theme-preference';
+
+      function applyTheme(theme){
+        if(theme === 'dark'){
+          root.setAttribute('data-theme','dark');
+          toggle.textContent = '☀️';
+        } else {
+          root.removeAttribute('data-theme');
+          toggle.textContent = '🌙';
+        }
+      }
+
+      // initial theme: from localStorage, then system preference
+      const stored = localStorage.getItem(storageKey);
+      if(stored){
+        applyTheme(stored);
+      } else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+        applyTheme('dark');
+      }
+
+      toggle.addEventListener('click', ()=>{
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        const next = isDark ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem(storageKey, next);
+      });
+    })();
+  </script>
+</body>
+</html>

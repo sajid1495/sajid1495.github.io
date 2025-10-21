@@ -1,0 +1,58 @@
+/* Simple responsive portfolio styles */
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --text:#0f172a;
+  --radius:12px;
+}
+/* dark theme variables applied when `data-theme="dark"` is set on <html> */
+:root[data-theme='dark']{
+  --bg:#0b1220;
+  --card:#071127;
+  --muted:#9aa6bf;
+  --accent:#3b82f6;
+  --text:#e6eef8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg),#eef2ff);
+}
+.container{max-width:1000px;margin:0 auto;padding:24px}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.theme-toggle{border:0;background:transparent;font-size:18px;cursor:pointer;padding:8px;border-radius:8px}
+.theme-toggle:hover{background:rgba(15,23,42,0.04)}
+.site-title{margin:0;font-size:20px}
+.site-nav a{margin-left:16px;color:var(--muted);text-decoration:none}
+.site-nav a:hover{color:var(--text)}
+.hero{display:flex;gap:28px;align-items:center;padding:28px 0}
+.hero-left{flex:0 0 180px}
+.profile-photo{width:180px;height:180px;border-radius:12px;background:linear-gradient(135deg,#a78bfa,#60a5fa);display:block}
+.hero-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content next to the photo */
+}
+.hero-right h2{margin-top:0}
+.hero-right .lead{ text-align: justify; }
+.hero-right .cta{ margin-top:16px }
+.lead{color:var(--muted);max-width:56ch}
+.cta{display:inline-block;padding:10px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;margin:20px 0;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.project{padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff)}
+.muted{color:var(--muted);font-size:14px}
+.site-footer{padding:28px 0;color:var(--muted)}
+/* smooth color transitions */
+body, .card, .project, .site-header, .site-footer{transition:background-color .25s ease,color .25s ease}
+@media (max-width:720px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero-left{flex:0 0 auto}
+  .profile-photo{width:140px;height:140px}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
