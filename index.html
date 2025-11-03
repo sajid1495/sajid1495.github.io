@@ -76,10 +76,57 @@
       </ul>
     </section>
 
-    <section id="contact" class="card">
+    <!-- Connect section: quick links and social cards -->
+    <section id="connect" class="card connect-section">
+      <h3>Connect with me</h3>
+      <p class="muted">Prefer quick links? Find me on GitHub and LinkedIn, download my resume, or send a short email.</p>
+      <div class="connect-grid">
+        <a class="connect-card" href="mailto:m.sajid1495@.com">
+          <div class="connect-icon">✉️</div>
+          <h4>Email</h4>
+          <p class="muted">Send a direct email</p>
+        </a>
+        <a class="connect-card" href="https://github.com/sajid1495" target="_blank" rel="noopener">
+          <div class="connect-icon">🐙</div>
+          <h4>GitHub</h4>
+          <p class="muted">Explore my projects</p>
+        </a>
+        <a class="connect-card" href="http://www.linkedin.com/in/sajidruetcse21" target="_blank" rel="noopener">
+          <div class="connect-icon">💼</div>
+          <h4>LinkedIn</h4>
+          <p class="muted">Let's network</p>
+        </a>
+        <a class="connect-card" href="assets/resume.pdf" target="_blank" rel="noopener">
+          <div class="connect-icon">📄</div>
+          <h4>Resume</h4>
+          <p class="muted">Download my CV</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact section: full form -->
+    <section id="contact" class="card contact-only">
       <h3>Contact</h3>
-      <p>Email: <a href="mailto:m.sajid1495@.com" target="_blank">m.sajid1495@.com</a></p>
-      <p>LinkedIn: <a href="http://www.linkedin.com/in/sajidruetcse21" target="_blank">sajidruetcse21</a> • GitHub: <a href="https://github.com/sajid1495" target="_blank">sajid1495</a></p>
+      <div class="contact-form">
+        <form id="contact-form" aria-label="Contact form">
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Your email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or question..." required></textarea>
+          </div>
+          <div class="form-row form-actions">
+            <button type="submit" class="cta btn-primary">Send message</button>
+            <span class="muted note">Or email me directly at <a href="mailto:m.sajid1495@gmail.com">m.sajid1495@gmail.com</a></span>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -123,6 +170,24 @@
         localStorage.setItem(storageKey, next);
       });
     })();
+
+      // Contact form handler: opens user's email client with pre-filled message (static fallback)
+      (function(){
+        const form = document.getElementById('contact-form');
+        if(!form) return;
+
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          const to = 'm.sajid1495@.com';
+          const subject = encodeURIComponent(`Contact from ${name || email}`);
+          const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+          // open mail client
+          window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        });
+      })();
   </script>
 </body>
 </html>

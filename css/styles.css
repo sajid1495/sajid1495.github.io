@@ -66,3 +66,45 @@ body, .card, .project, .site-header, .site-footer{transition:background-color .2
   .profile-photo{width:140px;height:140px}
   .header-inner{flex-direction:column;align-items:flex-start;gap:12px}
 }
+
+/* Contact section styles */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.contact-info .contact-card{padding:18px;border-radius:12px;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+.contact-card h4{margin-top:0;margin-bottom:8px}
+.contact-list{list-style:none;padding:0;margin:12px 0 0 0}
+.contact-list li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px dashed rgba(0,0,0,0.04)}
+.contact-list li:first-child{border-top:0}
+.contact-list a{color:var(--accent);text-decoration:none}
+.social-links{display:flex;gap:10px;margin-top:12px}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;color:var(--muted);padding:6px;border-radius:8px;background:transparent;border:1px solid rgba(0,0,0,0.04)}
+
+.contact-form{padding:10px}
+.contact-form form{display:flex;flex-direction:column;gap:12px}
+.form-row label{display:block;font-weight:600;margin-bottom:6px}
+.form-row input,.form-row textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,42,0.08);background:transparent;color:var(--text);outline:none}
+:root[data-theme='dark'] .form-row input,:root[data-theme='dark'] .form-row textarea{border:1px solid rgba(255,255,255,0.06)}
+.form-row textarea{resize:vertical;min-height:120px}
+.form-actions{display:flex;gap:12px;align-items:center}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);border:none;color:white;padding:10px 16px;border-radius:10px;cursor:pointer}
+.btn-primary:hover{opacity:0.95}
+.note{font-size:13px}
+
+@media (max-width:820px){
+  .contact-grid{grid-template-columns:1fr;}
+}
+
+/* small visual polish for links in the contact card */
+.contact-card a{color:var(--accent)}
+
+/* Connect section styles - visually distinct cards */
+.connect-section .connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.connect-card{display:block;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--card));box-shadow:0 8px 24px rgba(15,23,42,0.06);text-decoration:none;color:inherit;border:1px solid rgba(15,23,42,0.04);transition:transform .18s ease,box-shadow .18s ease}
+:root[data-theme='dark'] .connect-card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid rgba(255,255,255,0.03)}
+.connect-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,0.12)}
+.connect-icon{font-size:22px;margin-bottom:8px}
+.connect-card h4{margin:0 0 6px}
+.connect-card p{margin:0;font-size:13px;color:var(--muted)}
+
+/* make contact-only form stand out slightly from connect cards */
+.contact-only{padding-top:6px}
+.contact-only .contact-form{padding:6px}
